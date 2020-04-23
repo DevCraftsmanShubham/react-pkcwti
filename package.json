@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@babel/runtime": "^7.9.2",
+    "@babel/runtime": "7.9.2",
+    "@types/react": "^16.9.34",
+    "custom-error": "0.2.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-pdf": "4.1.0",
-    "url": "^0.11.0"
+    "react-file-viewer": "1.2.1",
+    "react-pdf": "4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

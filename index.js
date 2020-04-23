@@ -2,33 +2,24 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
-import { Document, Page } from 'react-pdf';
-
+import FileViewer from 'react-file-viewer';
+import { CustomErrorComponent } from 'custom-error';
+const file = 'pdf_url'
+const type = 'pdf'
 
 class App extends Component {
- state = {
-    numPages: null,
-    pageNumber: 1,
+
+ onError(e) {
+    logger.logError(e, 'error in file-viewer');
   }
-
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-  }
-
-
   render() {
-    const { pageNumber, numPages } = this.state;
 
     return (
-      <div>
-        <Document
-          file="somefile.pdf"
-          onLoadSuccess={this.onDocumentLoadSuccess}
-        >
-          <Page pageNumber={pageNumber} />
-        </Document>
-        <p>Page {pageNumber} of {numPages}</p>
-      </div>
+      <FileViewer
+        fileType={type}
+        filePath={file}
+        errorComponent={CustomErrorComponent}
+        onError={this.onError}/>
     );
   }
 }
